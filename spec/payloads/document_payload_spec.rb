@@ -9,7 +9,7 @@ describe DocumentPayload, '#validate_for_operation' do
 
   context 'Operation: Identification, InputOption: Tracking' do
     let(:operation) do
-      Operations::Identification.new(input_option: InputOptions::Tracking)
+      Operations::Identification.new(:tracking)
     end
 
     context 'Drivers license' do
@@ -67,7 +67,7 @@ describe DocumentPayload, '#validate_for_operation' do
 
   context 'Operation: Identification, InputOption: PersonalInformation' do
     let(:operation) do
-      Operations::Identification.new(input_option: InputOptions::PersonalInformation)
+      Operations::Identification.new(:personal_information)
     end
 
     context 'Drivers license' do

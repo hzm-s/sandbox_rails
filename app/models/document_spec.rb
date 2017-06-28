@@ -8,7 +8,7 @@ DocumentSpec = Struct.new(:spec) do
   end
 
   def pages_for_operation(operation)
-    @pages_for_operation ||= spec[:pages][operation.input_option_type]
+    @pages_for_operation ||= spec[:pages][operation.input_option]
   end
 
   def min_page_for_operation(operation)
