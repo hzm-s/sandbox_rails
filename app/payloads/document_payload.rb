@@ -11,7 +11,7 @@ class DocumentPayload
     document_images_page: { allow_nil: true }
 
   def validate_for_operation(operation)
-    document_spec = DocumentSpec.fetch(type)
+    document_spec = DocumentSpecs.fetch(type)
     self.context = PayloadValidationContext.new(operation, document_spec)
     valid?
   end

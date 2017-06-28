@@ -7,30 +7,28 @@ DocumentSpec = Struct.new(:spec) do
     end
   end
 
-  def pages_for_operation(operation)
-    @pages_for_operation ||= spec[:pages][operation.input_option]
-  end
-
   def min_page_for_operation(operation)
-    pages_for_operation(operation).first
+    required_fields = operation.required_fields(spec[:not_exists])
   end
 
   def max_page_for_operation(operation)
-    pages_for_operation(operation).last
+    min_page_for_operation(operation)
   end
 end
 
 DocumentSpec.master = {
   drivers_license: {
-    pages: {
-      tracking: 2..2,
-      personal_information: 2..2
-    }
+    not_exists: %i(gender),
+    pages: [
+      { page: 1, fields: %i(number issue_date name birth address) },
+      { page: 2, fields: %i(address) }
+    ]
   },
   passport: {
-    pages: {
-      tracking: 1..1,
-      personal_information: 2..2
-    }
+    not_exists: %i(),
+    pages: [
+      { page: 1, fields: %i(number issue_date name gender birth) },
+      { page: 2, fields: %i(address) }
+    ]
   }
 }
