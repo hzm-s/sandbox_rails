@@ -98,6 +98,15 @@ describe DocumentPayload, '#validate_for_operation' do
       end
 
       context 'Passport Address:OFF' do
+        let(:operation) do
+          Operations::Identification.new(
+            [
+              FeatureOptions::BasicFourInformation,
+              FeatureOptions::PassportAddressCheck.new(false)
+            ]
+          )
+        end
+
         let(:valid_params) do
           {
             type: 'passport',
@@ -128,7 +137,7 @@ describe DocumentPayload, '#validate_for_operation' do
           Operations::Identification.new(
             [
               FeatureOptions::BasicFourInformation,
-              FeatureOptions::PassportAddressCheck
+              FeatureOptions::PassportAddressCheck.new(true)
             ]
           )
         end
