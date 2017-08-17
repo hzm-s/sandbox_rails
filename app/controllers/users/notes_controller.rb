@@ -3,6 +3,7 @@ class Users::NotesController < ApplicationController
 
   def show
     @note = @user.note || Note.new
+    render :show, layout: false
   end
 
   def create
