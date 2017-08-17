@@ -1,9 +1,0 @@
-<%= form_for @matching do |f| -%>
-  <% f.object.pairs.each do |pair| -%>
-    <div>
-      <p>Field: <%= pair.field %></p>
-      <p>Document: <%= pair.document %></p>
-      <p>Site: <%= pair.site %></p>
-    </div>
-  <% end -%>
-<% end -%>
