@@ -109,6 +109,8 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    render_async (0.2.3)
+      bundler (~> 1.8)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -176,6 +178,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.7)
   rails (~> 5.1.1)
+  render_async
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   spring
@@ -187,4 +190,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.6
+   1.15.3
