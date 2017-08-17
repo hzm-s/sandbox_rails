@@ -1,0 +1,10 @@
+<%= form_with model: note, url: user_note_url(user_id: user.id), remote: true do |f| -%>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div id="note_save_state" class="save_state">Saved</div>
+<% end -%>

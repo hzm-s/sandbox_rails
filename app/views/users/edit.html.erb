@@ -2,5 +2,7 @@
 
 <%= render 'form', user: @user %>
 
+<%= render_async user_note_url(user_id: @user.id) %>
+
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

@@ -52,3 +52,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'render_async'
+gem 'jquery-rails'
