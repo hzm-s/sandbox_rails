@@ -1,11 +1,62 @@
 module InlineEditHelper
-  def link_to_inline_edit(name = nil, container_dom_id = nil, html_options = {}, &block)
-    html_options.deep_merge!(
-      data: {
-        behavior: 'toggle-inline-edit',
-        inline_edit_target: container_dom_id
-      }
-    )
-    link_to(name, '#', html_options, &block)
+  module Naming
+    DATA_BEHAVIOR_VALUE = 'toggle-inline-edit'.freeze
+
+    CSS_CLASSES = {
+      root: 'ie-Section'.freeze,
+      primary: 'ie-Section_Show'.freeze,
+      form: 'ie-Section_Edit'.freeze,
+    }.freeze
+
+    def data_behavior_value
+      DATA_BEHAVIOR_VALUE
+    end
+
+    def css_class_for(section)
+      CSS_CLASSES[section]
+    end
+  end
+
+  include Naming
+
+  class Builder
+    include Naming
+
+    def initialize(template, container_dom_id)
+      @template = template
+      @container_dom_id = container_dom_id
+    end
+
+    def primary(&block)
+      @template.capture do
+        @template.content_tag(:div, class: css_class_for(:primary), &block)
+      end
+    end
+
+    def form(&block)
+      @template.capture do
+        @template.content_tag(:div, class: css_class_for(:form), &block)
+      end
+    end
+
+    def link_to_toggle(name = nil, html_options = {}, &block)
+      html_options.deep_merge!(
+        data: {
+          behavior: data_behavior_value,
+          inline_edit_target: @container_dom_id
+        }
+      )
+      @template.capture do
+        @template.link_to(name, '#', html_options, &block)
+      end
+    end
+  end
+
+  def inline_edit_for(container_dom_id, &block)
+    builder = Builder.new(self, container_dom_id)
+    output = capture(builder, &block)
+    content_tag(:div, id: container_dom_id, class: css_class_for(:root)) do
+      concat output
+    end
   end
 end

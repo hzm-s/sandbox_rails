@@ -15,7 +15,7 @@
 //= require jquery3
 //= require_tree .
 
-document.addEventListener('turbolinks:load', function () {
+var setupInlineEdit = function() {
   var toggleInlineEdit = function (e) {
     e.preventDefault();
 
@@ -29,4 +29,8 @@ document.addEventListener('turbolinks:load', function () {
     var toggle = toggles[i];
     toggle.addEventListener('click', toggleInlineEdit, false);
   }
+}
+
+document.addEventListener('turbolinks:load', function () {
+  setupInlineEdit();
 });
