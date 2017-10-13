@@ -19,23 +19,25 @@ module InlineEditHelper
 
   include Naming
 
-  class Builder
+  class Builder < SimpleDelegator
     include Naming
 
     def initialize(template, container_dom_id)
-      @template = template
+      super(template)
       @container_dom_id = container_dom_id
     end
 
     def primary(&block)
-      @template.capture do
-        @template.content_tag(:div, class: css_class_for(:primary), &block)
-      end
+      section(:primary, &block)
     end
 
     def form(&block)
-      @template.capture do
-        @template.content_tag(:div, class: css_class_for(:form), &block)
+      section(:form, &block)
+    end
+
+    def section(name, &block)
+      capture do
+        content_tag(:div, class: css_class_for(name), &block)
       end
     end
 
@@ -46,8 +48,8 @@ module InlineEditHelper
           inline_edit_target: @container_dom_id
         }
       )
-      @template.capture do
-        @template.link_to(name, '#', html_options, &block)
+      capture do
+        link_to(name, '#', html_options, &block)
       end
     end
   end
