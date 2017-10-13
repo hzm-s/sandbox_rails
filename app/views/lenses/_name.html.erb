@@ -3,13 +3,13 @@
     <p>
       <%= lens.name %>
     </p>
-    <%= link_to 'edit', '#', data: { behavior: 'toggle-inline-edit', inline_edit_target: 'js-lens-name' } %>
+    <%= link_to_inline_edit 'edit', 'js-lens-name' %>
   </div>
   <div class="ie-Section_Edit">
     <%= form_with model: lens, url: lense_url(lens), method: :patch, remote: true do |f| %>
       <%= f.text_field :name %>
       <%= f.submit 'Update' %>
-      <%= link_to 'cancel', '#', data: { behavior: 'toggle-inline-edit', inline_edit_target: 'js-lens-name' } %>
+      <%= link_to_inline_edit 'cancel', 'js-lens-name' %>
     <% end -%>
   </div>
 </div>

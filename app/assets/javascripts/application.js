@@ -24,8 +24,9 @@ document.addEventListener('turbolinks:load', function () {
     target.classList.toggle('ie-Section-open');
   };
 
-  var toggle = document.querySelector('[data-behavior="toggle-inline-edit"]');
-  if (toggle != null) {
+  var toggles = document.querySelectorAll('[data-behavior="toggle-inline-edit"]');
+  for(var i = 0; i < toggles.length; i++) {
+    var toggle = toggles[i];
     toggle.addEventListener('click', toggleInlineEdit, false);
   }
 });
