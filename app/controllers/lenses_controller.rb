@@ -6,7 +6,7 @@ class LensesController < ApplicationController
 
   def update
     @lens = Lens.find(params[:id])
-    @lens.update!(lens_params)
+    @updated = @lens.update(lens_params)
   end
 
   private

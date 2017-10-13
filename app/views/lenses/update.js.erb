@@ -1,2 +1,6 @@
-Turbolinks.clearCache();
-Turbolinks.visit('<%= lense_url(@lens) %>');
+<% if @updated -%>
+  Turbolinks.clearCache();
+  Turbolinks.visit('<%= lense_url(@lens) %>');
+<% else -%>
+  $('form').replaceWith("<%=j render 'form' %>");
+<% end -%>
