@@ -1,0 +1,10 @@
+<h1>
+  Lenses
+</h1>
+<ul>
+  <% Lens.all.each do |lens| %>
+    <li>
+      <%= link_to lens.title, lense_url(lens) %>
+    </li>
+  <% end -%>
+</ul>

@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Lens.create(name: 'Summicron', focal_length: 35, generation: 1)
+Lens.create(name: 'Summaron', focal_length: 28, generation: 1)

@@ -1,0 +1,15 @@
+<div class="ie-Section" id="js-lens-name">
+  <div class="ie-Section_Show">
+    <p>
+      <%= lens.name %>
+    </p>
+    <%= link_to 'edit', '#', data: { behavior: 'toggle-inline-edit', inline_edit_target: 'js-lens-name' } %>
+  </div>
+  <div class="ie-Section_Edit">
+    <%= form_with model: lens, url: lense_url(1), method: :patch, remote: true do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit 'Update' %>
+      <%= link_to 'cancel', '#', data: { behavior: 'toggle-inline-edit', inline_edit_target: 'js-lens-name' } %>
+    <% end -%>
+  </div>
+</div>

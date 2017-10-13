@@ -12,16 +12,20 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery3
 //= require_tree .
 
 document.addEventListener('turbolinks:load', function () {
   var toggleInlineEdit = function (e) {
     e.preventDefault();
+
     var targetId = this.dataset.inlineEditTarget;
     var target = document.getElementById(targetId);
     target.classList.toggle('ie-Section-open');
   };
-  document
-    .querySelector('a[data-behavior="toggle-inline-edit"]')
-    .addEventListener('click', toggleInlineEdit, false);
+
+  var toggle = document.querySelector('[data-behavior="toggle-inline-edit"]');
+  if (toggle != null) {
+    toggle.addEventListener('click', toggleInlineEdit, false);
+  }
 });
