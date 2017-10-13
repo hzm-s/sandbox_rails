@@ -1,1 +1,6 @@
 @import 'hashigami/inline-edit';
+@import 'animate';
+
+.animated.fadeIn {
+  animation-duration: .25s;
+}

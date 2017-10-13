@@ -5,7 +5,7 @@
     </p>
     <%= ie.link_to_toggle 'edit' %>
   <% end %>
-  <%= ie.form do %>
+  <%= ie.form class: 'animated fadeIn' do %>
     <%= form_with model: lens, url: lense_url(lens), method: :patch, remote: true do |f| %>
       <%= f.text_field :name %>
       <%= f.submit 'Update' %>
