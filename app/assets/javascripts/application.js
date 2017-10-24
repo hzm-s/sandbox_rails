@@ -15,4 +15,10 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require ladda/spin.min
+//= require ladda/ladda.min
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  Ladda.bind('button[type=submit]');
+})

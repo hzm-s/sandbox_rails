@@ -1,0 +1,13 @@
+.btn:disabled {
+  opacity: 1;
+}
+
+textarea {
+  outline: none;
+  border: none;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}

@@ -1,0 +1,16 @@
+<h1>
+  Register new camera
+</h1>
+<%= form_with model: Camera.new, url: cameras_url do |f| %>
+  <div>
+    <%= f.label :vendor %>
+    <%= f.text_field :vendor, class: 'form-control' %>
+  </div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_area :name %>
+  </div>
+  <div>
+    <%= f.button 'Create', class: 'btn btn-success ladda-button', data: { spinner_size: '30', style: 'slide-right' } %>
+  </div>
+<% end -%>
