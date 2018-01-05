@@ -1,0 +1,16 @@
+<h1>
+  Inquiry
+</h1>
+<section class="nav">
+  <%= link_to 'List', inquiries_url %>
+</section>
+<hr>
+<h2>
+  <%= @inquiry.title %>
+</h2>
+<p>
+  <%= simple_format @inquiry.description %>
+</p>
+<%= render @inquiry.vc_addresses %>
+<hr>
+<%= link_to 'Virtual currency address list', inquiry_vc_addresses_url(@inquiry) %>

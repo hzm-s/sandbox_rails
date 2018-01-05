@@ -1,0 +1,10 @@
+<%= form_with scope: :form, model: model, url: inquiry_vc_addresses_url(index: index), id: "js-vc-address-form-#{index}", class: 'js-vc-address-form' do |f| %>
+  <div class="form-group row">
+    <div class="col-sm-3">
+      <%= f.text_field :currency, class: 'form-control' %>
+    </div>
+    <div class="col-sm-9">
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+  </div>
+<% end %>

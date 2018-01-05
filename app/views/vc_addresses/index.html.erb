@@ -1,0 +1,16 @@
+<h1>
+  Virtual currency address list for
+</h1>
+<h2>
+  <%= current_inquiry.title %>
+</h2>
+<section class="nav">
+  <%= link_to 'Back to inquiry', current_inquiry %>
+</section>
+<hr>
+<%= render current_inquiry.vc_addresses %>
+<% 3.times do |n| %>
+  <%= render partial: 'item_form', locals: { index: n, model: current_inquiry.vc_addresses.build } %>
+<% end %>
+<hr>
+<%= button_tag 'Save', class: 'btn btn-primary', data: { behavior: 'submit-vc-addresses' } %>

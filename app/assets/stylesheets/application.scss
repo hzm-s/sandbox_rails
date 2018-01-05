@@ -1,2 +1,14 @@
+@import 'bootstrap/functions';
 @import 'bootstrap_variables';
 @import 'bootstrap';
+
+.field_with_errors {
+  .form-control {
+    border-color: theme-color('danger');
+  }
+
+  .invalid-feedback {
+    display: block;
+    color: theme-color('danger') !important;
+  }
+}

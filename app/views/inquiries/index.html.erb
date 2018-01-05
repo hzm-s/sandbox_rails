@@ -1,0 +1,21 @@
+<h1>
+  Inquiry List
+</h1>
+<section class="nav">
+  <%= link_to 'New', new_inquiry_url %>
+</section>
+<hr>
+<main>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @inquiries %>
+    </tbody>
+  </table>
+</main>
