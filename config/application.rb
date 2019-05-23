@@ -34,5 +34,7 @@ module SandboxRails
       g.view_specs false
       g.controller_specs false
     end
+
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end
